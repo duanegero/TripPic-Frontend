@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"; //importing use nav to go from p
 //importing helper function to use in app
 import submitLogin from "./Helpers/submitLogin";
 import loginButtonClassName from "../Buttons/btn-styles";
+import openNewUserWindow from "../NewUser Page/Helpers/openNewUserWindow";
 
 export default function LoginForm() {
   //useState variables to set and handle user input
@@ -56,7 +57,15 @@ export default function LoginForm() {
           <button class={loginButtonClassName()}>Login</button>
         </div>
       </form>
-      <button>Register</button>
+      <button
+        type="button"
+        onClick={() => {
+          openNewUserWindow();
+        }}
+        className="cursor-pointer my-4 border-2"
+      >
+        Register
+      </button>
     </div>
   );
 }
