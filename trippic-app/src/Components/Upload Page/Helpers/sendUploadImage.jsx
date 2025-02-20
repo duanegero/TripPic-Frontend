@@ -2,6 +2,8 @@ import axios from "axios"; //imporing axios to make api calls
 
 const apiUrl = "http://localhost:3005"; //setting variable to handle calls to api
 
+const token = localStorage.getItem("token");
+
 //async function with passed in variables
 const sendUploadImage = async (
   selectedFile,
@@ -25,6 +27,7 @@ const sendUploadImage = async (
     const uploadResponse = await axios.post(`${apiUrl}/imageRoute`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
       },
     });
 

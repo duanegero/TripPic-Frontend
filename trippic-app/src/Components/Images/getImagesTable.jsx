@@ -5,6 +5,8 @@ const apiUrl = "http://localhost:3005"; //setting variable to handle calls to ap
 //importing icons from react
 import { TbPlayerTrackNext, TbPlayerTrackPrev } from "react-icons/tb";
 
+const token = localStorage.getItem("token");
+
 export default function ImagesTable({ userId }) {
   //usestate variables to set later in app
   const [images, setImages] = useState([]);
@@ -16,7 +18,14 @@ export default function ImagesTable({ userId }) {
     const fetchImages = async () => {
       try {
         //variable to handle axios request to api
-        const response = await axios.get(`${apiUrl}/imageRoute/user/${userId}`);
+        const response = await axios.get(
+          `${apiUrl}/imageRoute/user/${userId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         //set images with response from api
         setImages(response.data.userImages);
       } catch (error) {

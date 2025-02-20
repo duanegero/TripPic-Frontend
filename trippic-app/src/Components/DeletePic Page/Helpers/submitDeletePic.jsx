@@ -2,6 +2,8 @@ import axios from "axios"; //imporing axios to make api calls
 
 const apiUrl = "http://localhost:3005"; //setting variable to handle calls to api
 
+const token = localStorage.getItem("token");
+
 //define async function to use in app
 const submitDeletePic = async ({ s3_url }) => {
   //if not url passed in alert user
@@ -30,7 +32,11 @@ const submitDeletePic = async ({ s3_url }) => {
 
   try {
     //variable to handle axios request
-    const response = await axios.delete(`${apiUrl}/imageRoute/${fileKey}`);
+    const response = await axios.delete(`${apiUrl}/imageRoute/${fileKey}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     //if status 200 ok alert and return to user
     if (response.status === 200) {
