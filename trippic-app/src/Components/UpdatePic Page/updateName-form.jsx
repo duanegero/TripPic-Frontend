@@ -3,15 +3,21 @@ import React, { useState } from "react";
 import submitUpdateImageName from "./Helpers/submitUpdateImageName";
 
 export default function UpdateNameForm() {
+  //creating use state variables to handle name
   const [name, setName] = useState("");
 
+  //getting the image ID from the URL
   const imageId = new URLSearchParams(window.location.search).get("id");
 
+  //define a variable to handle submit, with passed in variable
   const handleSubmit = (event) => {
     try {
-      submitUpdateImageName(imageId, name, event);
+      //try helper function with passed in variables
+      submitUpdateImageName(imageId, name, setName, event);
+      //alert user if success
       alert("Updated image name:", name);
     } catch (error) {
+      //catch and log if any errors
       console.error("Error submiting new name.", error);
     }
   };

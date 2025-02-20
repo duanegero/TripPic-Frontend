@@ -5,12 +5,15 @@ import ImagesTable from "../Images/getImagesTable";
 import openUploadWindow from "../Upload Page/Helpers/openUploadWindows";
 import openUpdatePicWindow from "../UpdatePic Page/Helpers/openUpdatePicWindow";
 import openDeletePicWindow from "../DeletePic Page/Helpers/openDeletePicWindow";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeNav() {
   //useState variable to set and use in app
   const [activeTab, setActiveTab] = useState("");
   //getting the user ID from URL
   const userId = new URLSearchParams(window.location.search).get("userId");
+  //variable to handle navigation through app
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -40,7 +43,10 @@ export default function HomeNav() {
           >
             Delete Pic
           </li>
-          <li className="hover:underline hover:font-extrabold cursor-pointer font-swanky text-3xl tracking-wider mb-3">
+          <li
+            onClick={() => navigate(`/support?userId=${userId}`)}
+            className="hover:underline hover:font-extrabold cursor-pointer font-swanky text-3xl tracking-wider mb-3"
+          >
             Support
           </li>
         </ul>

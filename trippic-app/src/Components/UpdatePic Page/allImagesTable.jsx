@@ -22,20 +22,27 @@ export default function AllImagesTable() {
   const queryParams = new URLSearchParams(location.search);
   const userId = queryParams.get("userId"); // Get the userId parameter
 
+  //use effect used to get images
   useEffect(() => {
     if (userId) {
+      //variable to handle async function
       const getImages = async () => {
         try {
+          //variable to handle helper function call with passed in user ID
           const data = await getImageData(userId);
+          //log and set data for user
           console.log("Fetched Data", data);
           setImageData(data);
         } catch (error) {
+          //catch and log if any errors
           console.error("Error fetching image data.");
           setError("Failed to fetch image data.");
         }
       };
+      //call function as soon as window opens
       getImages();
     }
+    //re-call function when ever the user ID changes
   }, [userId]);
 
   return (
