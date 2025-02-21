@@ -62,7 +62,7 @@ export default function LoginForm() {
         onClick={() => {
           openNewUserWindow();
         }}
-        className="cursor-pointer my-4 border-2"
+        className=" mt-10 w-48 px-6 py-3 bg-white text-gray-700 font-semibold rounded-2xl shadow-md border border-gray-300 hover:bg-gray-100 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition duration-300"
       >
         Register
       </button>
