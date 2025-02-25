@@ -5,6 +5,7 @@ import ImagesTable from "../Images/getImagesTable";
 import openUploadWindow from "../Upload Page/Helpers/openUploadWindows";
 import openUpdatePicWindow from "../UpdatePic Page/Helpers/openUpdatePicWindow";
 import openDeletePicWindow from "../DeletePic Page/Helpers/openDeletePicWindow";
+import openUpdateUserWindow from "../Update User/Helpers/openUpdateUserWindow";
 import { useNavigate } from "react-router-dom";
 
 export default function HomeNav() {
@@ -42,6 +43,12 @@ export default function HomeNav() {
             className="hover:underline hover:font-extrabold cursor-pointer font-swanky text-3xl tracking-wider mb-3"
           >
             Delete Pic
+          </li>
+          <li
+            onClick={() => openUpdateUserWindow(userId)}
+            className="hover:underline hover:font-extrabold cursor-pointer font-swanky text-3xl tracking-wider mb-3"
+          >
+            Update User Profile
           </li>
           <li
             onClick={() => navigate(`/support?userId=${userId}`)}

@@ -9,6 +9,7 @@ import UpdateName from "./Pages/UpdateName";
 import DeletePic from "./Pages/DeletePic";
 import Support from "./Pages/Support";
 import NewUser from "./Pages/NewUser";
+import UpdateUser from "./Pages/UpdateUser";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="deletepic" element={<DeletePic />} />
         <Route path="support" element={<Support />} />
         <Route path="newuser" element={<NewUser />} />
+        <Route path="updateuser" element={<UpdateUser />} />
       </Routes>
     </BrowserRouter>
   );
